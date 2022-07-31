@@ -1,0 +1,80 @@
+#6007 
+print("\"C:\Download\\'hello'.py\"")
+
+#6012
+a = int(input())
+b = int(input())
+print(a)
+print(b)
+
+#6015
+a, b = input().split()
+a = int(a)
+b = int(b)
+print(a)
+print(b)
+
+#6018
+a, b = input().split(':')
+#print(a + ":" + b)
+print(a, b, sep=':')
+
+#6020
+c = input()
+print(c.replace("-", ''))
+
+#6021
+s = input()
+for i in s :
+    print(i)
+
+#6022
+//s = input()
+//print(s[0:2])
+//print(s[2:4])
+//print(s[4:6])
+
+YMD = input()
+Y = YMD[:2]
+M = YMD[2:4]
+D = YMD[4:]
+
+print(Y, M, D)
+
+#6029
+a = input()
+hex = int(a, 16)
+print("%o" %hex)
+
+#6030
+n = ord(input())
+print(n)
+
+#6031
+c = int(input())
+print(chr(c))
+
+#6032
+n = int(input())
+print(-n)
+
+#6033
+s = ord(input())
+print(chr(s+1))
+
+#6042
+f = float(input())
+print(format(f,".2f"))
+
+#6046
+a = int(input())
+print(a<<1)
+
+#6048
+a, b = input().split()
+a = int(a)
+b = int(b)
+if(a<b) : 
+    print(True)
+else :
+    print(False)
