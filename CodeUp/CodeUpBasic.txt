@@ -1,3 +1,5 @@
+chkdsk /f f:
+
 #6007 
 print("\"C:\Download\\'hello'.py\"")
 
@@ -78,3 +80,24 @@ if(a<b) :
     print(True)
 else :
     print(False)
+
+#6054
+# and &
+# or |
+# xor ^
+
+a, b = input().split()
+a = bool(int(a))
+b = bool(int(b))
+print(a & b)
+
+#6059
+# ~ (bitwise not) 
+# & (bitwise and)
+# | (bitwise or)
+# ^ (bitwise xor)
+# << (bitwise left shift)
+# >> (bitwise right shift)
+
+a = int(input())
+print(~a)
