@@ -101,3 +101,35 @@ print(a & b)
 
 a = int(input())
 print(~a)
+
+#6076
+n = int(input())
+
+for i in range(n+1) : 
+    print(i)
+
+# range(n) 은 0, 1, 2, ... , n-2, n-1 까지의 수열을 의미한다.
+# 예를 들어 range(3) 은 0, 1, 2 인 수열을 의미한다.
+# range(끝)
+# range(시작, 끝)
+# range(시작, 끝, 증감)
+# 시작 수는 포함이고, 끝 수는 포함되지 않는다. [시작, 끝)
+# 증감할 수를 작성하지 않으면 +1이 된다.
+
+#6078
+a = 'a'
+
+while a != 'q' :
+    a = input()
+    print(a)
+
+#6079
+max = int(input())
+i = 1
+sum = 0
+
+while sum < max : 
+    sum += i
+    i += 1
+
+print(i-1)
