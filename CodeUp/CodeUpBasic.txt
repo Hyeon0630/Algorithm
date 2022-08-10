@@ -271,3 +271,63 @@ for i in range(19) :
     for j in range(19) : 
         print(d[i][j], end = ' ')
     print()    
+
+#6097
+h, w = input().split()
+h = int(h)
+w = int(w)
+array = []
+for i in range(h) : 
+    array.append([])
+    for j in  range(w) : 
+        array[i].append(0)
+
+n = int(input())
+for i in range(n) :
+    l, d, x, y = input().split()
+    if int(d) == 1 : 
+        for j in range(int(l)) : 
+            array[int(x)+j-1][int(y)-1] = 1
+    else : 
+        for j in range(int(l)) : 
+            array[int(x)-1][int(y)+j-1] = 1
+
+for i in range(h) : 
+    for j in range(w) : 
+        print(array[i][j], end = ' ')
+    print()
+
+#6098
+m = []
+for i in range(10) : 
+    m.append([])
+    for j in range(10) : 
+        m[i].append(0)
+
+for i in range(10) : 
+    a = input().split()
+    for j in range(10) : 
+        m[i][j] = int(a[j])
+
+x = 1
+y = 1
+
+while True : 
+    if m[x][y] == 0 : 
+        m[x][y] = 9
+    elif m[x][y] == 2 : 
+        m[x][y] = 9
+        break
+
+    if (m[x+1][y] == 1 and m[x][y+1] == 1) or (x == 8 and y == 8) : 
+        break
+    
+    if m[x][y+1] != 1 : 
+        y += 1
+    elif m[x+1][y] != 1 : 
+        x += 1
+
+for i  in range(10) : 
+    for j in range(10) :
+        print(m[i][j], end =' ')
+    print()
