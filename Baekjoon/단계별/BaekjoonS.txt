@@ -1,9 +1,85 @@
 chkdsk /f f:
 
-# 14_10172
+# 01_14_10172
 print('|\_/|')
 print('|q p|   /}')
 print('( 0 )"""\\')
 print('|"^"`    |')
 print('||_/=\\\__|')
 
+# 02_06_2525
+hi, mi = input().split()
+n = int(input())
+hi = int(hi)
+mi = int(mi)
+ho = hi + n//60
+mo = mi + n%60
+
+if mo >= 60 : 
+    ho += 1
+    mo -= 60
+
+if ho >= 24 : 
+    ho -= 24
+
+print(ho, mo)
+
+// 수정한 풀이
+hi, mi = input().split()
+hi = int(hi)
+mi = int(mi)
+
+ho = hi
+mo = mi - 45
+
+if mo < 0 : 
+    ho -= 1
+    mo += 60
+
+if ho < 0 : 
+    ho += 24
+
+print(ho, mo)
+
+# 02_05_2884
+hi, mi = input().split()
+hi = int(hi)
+mi = int(mi)
+
+if mi < 45 : 
+    if hi == 0 : 
+        ho = 23
+        mo = 60+ mi -45
+    else :
+        ho = hi - 1
+        mo = 60+ mi -45
+else : 
+    ho = hi
+    mo = mi - 45
+
+print(ho, mo)
+
+# 02_07_2480
+a, b, c = input().split()
+a = int(a)
+b = int(b)
+c = int(c)
+
+if a == b == c : 
+    print(10000 + a*1000)
+elif a == b or b == c or c == a :
+    if b != c: 
+        print(1000 + a*100)
+    else : 
+        print(1000 + b*100)
+else : 
+    if a > b : 
+        if a > c : 
+           print(a*100)
+        else : print(c*100)
+    else : 
+        if b > c : 
+           print(b*100)
+        else : print(c*100)
+
+// 수정한 풀이
