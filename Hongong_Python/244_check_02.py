@@ -1,31 +1,15 @@
-MIN = 2
-MAX = 10
-p = 100
-
 memo = {}
 
-def Q(no, yes): # 98 2 10 90
+def graph(p, upper):
     count = 0
-    key = str([no, yes])
-
+    key = (p, upper)
     if key in memo:
         return memo[key]
-    if no < 0:
-        return count
-    if no == 0:
-        return count
-    
-    # 재귀 처리
-        for i in range(yes, no + 1): # i = 2~100
-            if no > MAX:
-                yes += i # 4
-                no -= i # 96
-                Q(no, yes)
-            else:
+    if p == 0:
+        count += 1
+    for i in range(max(2, upper), min(p, 10)+1):
+        count += graph(p-i, i)
+    memo[key] = count    
+    return count
 
-    # 메모화 처리
-        memo[key] = count
-    # 종료
-        return count
-    
-print(Q(p-MIN, MIN))
+print(graph(100, 0))
