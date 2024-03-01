@@ -3,28 +3,32 @@ input = sys.stdin.readline
 
 N, K = map(int, input().split())
 pan = list()
-s = 0
-q = 0
 
 for i in range(N):
     pan.append("?")
 
-for i in range(K):
-    a, b = input().split()
-    a = int(a)
-    b = str(b)
-    s += a
-    if pan[s % N] != "?" and pan[s % N] != b:
-        q = 1
-    elif b in pan and pan[s % N] != b:
-        q = 1
-    else: 
-        pan[s % N] = b
+def solution():
+    answer = ""
+    s = 0
 
-if q == 0:
-    f = reversed(pan[0:s % N + 1])
-    r = reversed(pan[s % N + 1:N])
+    for i in range(K):
+        a, b = input().split()
+        a = int(a)
+        b = str(b)
+        s += a
+        if pan[s % N] != "?" and pan[s % N] != b:
+            answer = "!"
+        elif b in pan and pan[s % N] != b:
+            answer = "!"
+        else: 
+            pan[s % N] = b
+        
+        if answer != "!":
+            f = reversed(pan[0:s % N + 1])
+            r = reversed(pan[s % N + 1:N])
+            answer = "".join(f)+"".join(r)
 
-    print(*f, *r, sep="")
-else:
-    print("!")
+    return answer
+
+ans = solution()
+print(ans)
