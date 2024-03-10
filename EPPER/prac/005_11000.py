@@ -15,10 +15,9 @@ def Solution(s):
     # for 문 종료되면 index 에 있는 것을 s에서 제거
     # ans += 1
     # while문으로 감싸서 len(s) == 0되면 종료 
-
+    
     ans = 0
     index = [0]
-    
     while len(s) > 0:
         end = s[0][1]
         for i in range(len(s)):
