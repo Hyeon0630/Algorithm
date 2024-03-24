@@ -4,25 +4,35 @@ input = sys.stdin.readline
 N = int(input())
 W = list(list(map(int, input().split())) for i in range(N))
 
+INF = 1e8
+ans = INF
+visited = []
+matrix = []
 
-# 생각을 하자
-# w[0]에서 w[1], w[2], w[3]을 돌아야 함
-# 한 트리 끝까지 갈 동안 가중치 합 저장할 cnt가 있고
-# cnt <= ans이면 ans = cnt
-# 재귀를 돌아야 할 듯
-# 아래 가중치들의 합이 필요할 거고
-# 함수는 그럼 밑 노드들에서 가장 작은 가중치 합
-# 인자로는 윗 노드들 번호(부모 노드 인덱스 int, 자식 노드 인덱스 list, ans)
+def backt(n, cnt, curcity, cost):
+    global ans, visited, matrix
+    if cost >= ans:
+        return
+    if cnt == n:
+        if matrix[curcity][0] != 0:
+            ans = min(ans, cost + matrix[curcity][0])
+        return
+    for i in range(0, n):
+        if matrix[curcity][i] and visited[i] == 0:
+            visited[i] = True
+            backt(n, cnt+1, i, cost+matrix[curcity][i])
+            visited[i] = False
 
 
-def Solution(w):
-    ans = 0
-    cnt = []
-    for i in w:
-        for j in w[i]:
-            if j != 0:
-                cnt.append(i)
+def solution(n, cost):
+    global ans, visited, matrix
+
+    visited = [False]*n
+    visited[0] = True
+    matrix = cost
+    
+    backt(n, 1, 0, 0)
 
     return ans
 
-print(Solution(W))
+print(solution(N, W))

@@ -39,10 +39,55 @@ def solution(s):
         c[i+9] = ccnt
 
     while(1 in c):
-        for i in range(27):
-            if c[i] == 1:
+         for i in range(27):
+            if c[i] == 1 and i<=8:
+                  for j in range(9):
+                        if s[i][j] != 0:
+                           sum += s[i][j]
+                        else: 
+                              a = i
+                              b = j
+                  s[i][j] = 45 - sum
+                  c[i] == 0
+            if c[i] == 1 and 9<=i<=17:
+                  for j in range(9):
+                        if s[j][i] != 0:
+                           sum += s[j][i]
+                        else: 
+                              a = j
+                              b = i
+                  s[j][i] = 45 - sum
+                  c[i] == 0
+            if c[i] == 1 and 18<=i<=26:
+                  if i//3 == 0 and j//3 == 0:
+                      c[18] += 1
+                  elif i//3 == 0 and j//3 == 1:
+                        c[19] += 1
+                  elif i//3 == 0 and j//3 == 2:
+                        c[20] += 1
+                  elif i//3 == 1 and j//3 == 0:
+                        c[21] += 1
+                  elif i//3 == 1 and j//3 == 1:
+                        c[22] += 1
+                  elif i//3 == 1 and j//3 == 2:
+                        c[23] += 1
+                  elif i//3 == 2 and j//3 == 0:
+                        c[24] += 1
+                  elif i//3 == 2 and j//3 == 1:
+                        c[25] += 1
+                  elif i//3 == 2 and j//3 == 2:
+                        c[26] += 1
+                  for j in range(9):
+                        if s[i][j] != 0:
+                           sum += s[i][j]
+                        else: 
+                              a = i
+                              b = j
+                  s[i][j] = 45 - sum
+                  c[i] == 0      
+                           
                 
-    # dict에 1(행), 2(열), 3(박스)
+    # dict에 1(행), 2(열), 3(박스) 
     # 몇번 행, 열, 박스인지
     # 카운트된 개수
 
@@ -52,7 +97,6 @@ def solution(s):
     # 45에서 sum(temp) 빼서 0인 애 값 변경
     # a, b가 있는 위치 dict 카운트 수도 변경
 
-    
     return s
 
 p = solution(s)
