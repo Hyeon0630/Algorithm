@@ -1,30 +1,28 @@
-# 1253, 1021
-
 import sys
 input = sys.stdin.readline
+from collections import deque
 
 N, M = map(int, input().split())
-po = list(map(int, input().split()))
+d = list(map(int, input().split()))
+dq = deque([i for i in range(1, N+1)])
 
-def solution(n, m, p):
+def solution(m, d, dq):
     ans = 0
-    q = [i+1 for i in range(0, n)]
-    c = 0
-    # 0
-    # p의 원소 i-1이 0과 가까운지
-    # 예를 들어 
-    # 12345678910
-    # 2를 뽑고싶으면 거리 계산 i-1에서 현위지 1 빼기
-    #  9번
-    while(len(p) == 0):
-        for i in p:
-            a = i-1-c
-            b = n-a
-            if a < b:
-                
-            ans += min(a, b)
-            
-    q[m-1]
+    for i in range(0, m):
+        key = d[i]
+        while(True):
+            if dq[0] == key:
+                dq.popleft()
+                break
+            else:
+                if dq.index(key) <= len(dq)//2:
+                    while(dq[0] != key):
+                        ans += 1
+                        dq.append(dq.popleft())
+                else:
+                    while(dq[0] != key):
+                        ans += 1
+                        dq.appendleft(dq.pop())
     return ans
 
-print(solution(N, M, po))
+print(solution(M, d, dq))

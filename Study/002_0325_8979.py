@@ -1,18 +1,22 @@
 import sys
 input = sys.stdin.readline
-N, K = map(int, input().split())
-m = [list(map(int, input().split())) for i in range(N)]
 
-def check(a, me, color, m):
-    if m[a][color] > m[me-1][color]:
-        return int(1)
-    elif m[a][color] == m[me-1][color] and a != me-1 and color >= 3:
-        check(a, me, color+1, m)
+N, M = map(int, input().split())
+medal = [list(map(int, input().split())) for i in range(N)]
 
 def solution(n, k, m):
-    ans = 0
+    rank = 1
+    m.sort()
     for i in range(n):
-        ans += check(i, k, 1, m)
-    return ans
+        if m[k-1][1] < m[i][1]:
+            rank += 1
+        elif  m[k-1][1] == m[i][1]:
+            if m[k-1][2] < m[i][2]:
+                rank += 1
+            elif m[k-1][2] == m[i][2]:
+                if m[k-1][3] < m[i][3]:
+                    rank += 1
 
-print(solution(N, K, m))
+    return rank
+
+print(solution(N, M, medal))
